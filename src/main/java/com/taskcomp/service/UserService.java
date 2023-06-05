@@ -4,11 +4,14 @@ import com.taskcomp.models.User;
 
 import java.util.List;
 
-public interface userService {
-
+public interface UserService {
     List<User> getUsers();
-    void add(User user);
-    void delete(User user);
-    User changeUser(User user);
-    User getUser(Long id);
+
+    void save(User user);
+
+    void delete(int id);
+
+    void update(int id, User updateUser);
+
+    User show(int id);
 }
