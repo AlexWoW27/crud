@@ -1,9 +1,10 @@
 package com.taskcomp.service;
 
-import com.taskcomp.dao.UserDAO;
+import com.taskcomp.dao.UserDao;
 import com.taskcomp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,30 +12,35 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDAO userDAO;
+    private UserDao userDAO;
 
+    @Transactional(readOnly = true)
     @Override
     public List<User> getUsers() {
         return userDAO.getUsers();
     }
 
+    @Transactional
     @Override
     public void save(User user) {
         userDAO.save(user);
     }
 
+    @Transactional
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         userDAO.delete(id);
     }
 
+    @Transactional
     @Override
-    public void update(int id, User updateUser) {
+    public void update(Long id, User updateUser) {
         userDAO.update(id, updateUser);
     }
 
+    @Transactional(readOnly = true)
     @Override
-    public User show(int id) {
+    public User show(Long id) {
         return userDAO.show(id);
     }
 

@@ -1,4 +1,4 @@
-package com.taskcomp.javaConfig;
+package com.taskcomp.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;

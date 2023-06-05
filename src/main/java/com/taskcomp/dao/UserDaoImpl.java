@@ -10,37 +10,33 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional(readOnly = true)
     @Override
     public List<User> getUsers() {
         return entityManager.createQuery("FROM User", User.class).getResultList();
     }
 
-    @Transactional
     @Override
     public void save(User user) {
-        User user1 = new User();
-        user1.setName(user.getName());
-        user1.setSurname(user.getSurname());
-        user1.setAge(user.getAge());
-        entityManager.persist(user1);
+        User newUser = new User();
+        newUser.setName(user.getName());
+        newUser.setSurname(user.getSurname());
+        newUser.setAge(user.getAge());
+        entityManager.persist(newUser);
     }
 
-    @Transactional
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
     }
 
-    @Transactional
     @Override
-    public void update(int id,User updateUser) {
+    public void update(Long id,User updateUser) {
         User user = entityManager.find(User.class, id);
         user.setName(updateUser.getName());
         user.setSurname(updateUser.getSurname());
@@ -48,11 +44,9 @@ public class UserDAOImpl implements UserDAO {
         entityManager.merge(user);
     }
 
-    @Transactional(readOnly = true)
     @Override
-    public User show(int id) {
+    public User show(Long id) {
         User user = entityManager.find(User.class,id);
-        entityManager.detach(user);
         return user;
     }
 

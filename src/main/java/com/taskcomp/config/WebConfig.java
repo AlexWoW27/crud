@@ -1,4 +1,4 @@
-package com.taskcomp.javaConfig;
+package com.taskcomp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
