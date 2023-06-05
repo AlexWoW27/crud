@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="054719d2-3efd-48f6-a94c-f1271897bedc" name="@localhost ">
+      <data-sources db="f3b0745d-44dc-4178-9285-e62eb88b6343" ddl="0823b730-5a4d-459d-9d0a-7eee21f54636" />
+      <scope>
+        <node kind="schema" qname="crud_db" />
+      </scope>
+    </mapping>
+  </component>
+</project>
